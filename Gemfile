@@ -15,7 +15,18 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.4.1'
 
+group :test do 
+  gem 'shoulda-matchers'
+end
+
 group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'database_cleaner'
+  gem 'guard'
+  gem 'guard-rspec'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
