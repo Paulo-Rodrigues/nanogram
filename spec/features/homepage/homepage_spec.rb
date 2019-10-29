@@ -6,4 +6,10 @@ RSpec.feature "HOMEPAGE", type: :feature do
 
     expect(page).to have_http_status(200)
   end
+
+  scenario 'homepage does not display navbar' do
+    visit root_path
+
+    expect(page).not_to have_selector("//nav")
+  end
 end

@@ -1,3 +1,5 @@
 class PagesController < ApplicationController
-  def homepage;end
+  def homepage
+    @hide_nav = true
+  end
 end

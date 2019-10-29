@@ -4,14 +4,19 @@
     <title>Nanogram</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'layouts/shared/navbar' unless @hide_nav %>
+
+    <% flash.each do |key, msg| %>
+      <p class="#{key}"><%= msg %></p>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
