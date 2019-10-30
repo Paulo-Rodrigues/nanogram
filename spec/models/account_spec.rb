@@ -4,6 +4,12 @@ RSpec.describe Account, type: :model do
   context 'respond_to' do
     it { is_expected.to respond_to(:email) }
     it { is_expected.to respond_to(:password) }
+    it {is_expected.to respond_to(:username)}
+  end
+
+  context 'validations' do
+    it {is_expected.to validate_presence_of(:username)}
+    it {is_expected.to validate_length_of(:username).is_at_most(140)}
   end
 
   context 'associations' do

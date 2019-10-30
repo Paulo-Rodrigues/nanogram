@@ -4,7 +4,8 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <% if account_signed_in? %>
-          <li> <%= link_to "Profile", "#"%></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li> <%= link_to "Profile", profile_path(current_account.username) %></li>
           <li><%= link_to "New Post", new_post_path%></li>
           <li><%= link_to "Logout", destroy_account_session_path, method: :delete %>
         <% else %>
