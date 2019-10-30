@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
   before_action :set_account, only: [:show]
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.with_eager_loaded_image.order(created_at: :desc)
   end
 
   def show
