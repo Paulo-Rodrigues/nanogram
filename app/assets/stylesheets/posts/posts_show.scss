@@ -1,0 +1,14 @@
+.post-show-container{
+   margin: 5%;
+   height: 100%;
+   display: grid;
+   grid-template-columns: 1fr 4fr 1fr;
+}
+
+.post-show-card{
+    grid-column: 2 / 3;
+    .post-image{
+        height: 70%;
+        width: 100%;
+    }
+}

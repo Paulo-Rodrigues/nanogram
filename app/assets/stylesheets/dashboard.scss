@@ -1,0 +1,21 @@
+.feed{
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-row-gap: 20px;
+}
+
+.feed-card{
+    grid-column: 2 / 3;
+}
+
+.feed-image{
+    height: 50%;
+    width: 100%;
+}
+
+@media(min-width: 600px) {
+    .feed{
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+}

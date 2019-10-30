@@ -1,0 +1,24 @@
+.new-post-form {
+    margin: 0 10% 0 10%;
+  
+    .home-custom-btn {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+
+  .post-custom-btn {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  @media(min-width: 600px) {
+    .new-post-form {
+        margin: 0 20% 0 20%;
+      
+        .home-custom-btn {
+          width: 100%;
+          margin-top: 20px;
+        }
+      } 
+  }

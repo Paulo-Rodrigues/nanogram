@@ -1,5 +1,12 @@
-show
-<% @posts.each do |post| %>
-  <p><%= post.description %></p>
-  <%= image_tag(post.image) %>
-<% end %>
+
+<section class='feed'>
+  
+  <% @posts.each do |post| %>
+    <section class='feed-card'>
+      <%= link_to post_path(post) do %>
+        <%= image_tag(post.image, class: 'feed-image') %>
+      <% end %>
+    </section>
+  <% end %>
+  
+</section>

@@ -1,2 +1,24 @@
-<p><%= link_to "Edit Profile", edit_account_registration_path %></p>
-<%= @account.username %>
+
+<section class="profile">
+  <section class="profile-user">
+    <section class="profile-user-avatar">
+      <%= avatar(@account) %>
+    </section>
+
+    <section class="profile-user-info">
+      <p><%= link_to "Edit Profile", edit_account_registration_path %></p>
+      <p><%= @account.username %></p>
+      <p><%= @account.first_name %></p>
+      <p><%= @account.last_name %></p>
+      <p><%= @account.bio %></p>
+    </section>
+  </section>
+
+  <section class="profile-posts">
+    <% @account.posts.each do |post| %>
+      <%= link_to post_path(post) do %>
+        <%= image_tag(post.image, class: 'profile-posts-images')%>
+      <% end %>
+    <% end %>
+  </section>
+</section>
