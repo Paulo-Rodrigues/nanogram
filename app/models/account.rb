@@ -6,5 +6,5 @@ class Account < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
-  validates :username, presence: true, length: {maximum: 140}
+  validates :username, presence: true, uniqueness: true,  length: {maximum: 140}
 end

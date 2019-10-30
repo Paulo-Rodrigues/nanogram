@@ -6,7 +6,4 @@ class RegistrationsController < Devise::RegistrationsController
     profile_path(account.username)
   end
 
-  # def after_sign_in_path_for(account)
-  #   dashboard_path
-  # end
 end
