@@ -5,6 +5,10 @@ RSpec.describe Account, type: :model do
     it { is_expected.to respond_to(:email) }
     it { is_expected.to respond_to(:password) }
     it {is_expected.to respond_to(:username)}
+    it {is_expected.to respond_to(:avatar)}
+    it {is_expected.to respond_to(:bio)}
+    it {is_expected.to respond_to(:first_name)}
+    it {is_expected.to respond_to(:last_name)}
   end
 
   context 'validations' do
