@@ -21,6 +21,6 @@ RSpec.feature 'User' do
 
     visit root_path
 
-    expect(page).to have_content('show')
+    expect(page).to have_content('Logout')
   end
 end
