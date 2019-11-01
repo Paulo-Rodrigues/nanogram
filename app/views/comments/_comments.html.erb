@@ -1,0 +1,5 @@
+<h4>Comments: <%= commentable.comments.count %></h4>
+
+<% commentable.comments.each do |comment| %>
+ <p><%= comment.body %></p>
+<% end %>

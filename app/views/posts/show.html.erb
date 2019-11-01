@@ -13,5 +13,13 @@
     </p>
 
   </article>
+
+  <article class="post-comments-form">
+    <%= render partial: 'comments/form', locals: {commentable: @post} %>
+  </article>
+
+  <article class="post-comments">
+    <%= render partial: 'comments/comments', locals: {commentable: @post} %>
+  </article>
 </section>
 
