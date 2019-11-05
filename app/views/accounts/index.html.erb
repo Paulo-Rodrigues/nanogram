@@ -3,10 +3,29 @@
   
   <% @posts.each do |post| %>
     <section class='feed-card'>
-      <%= link_to post_path(post) do %>
-        <%= image_tag(post.image, class: 'feed-image') %>
-      <% end %>
+      <div class="card">
+        <div class="card-image">
+
+          <%= link_to post_path(post) do %>
+            <%= image_tag(post.image, class: 'feed-image') %>
+          <% end %>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
     </section>
   <% end %>
-  
+
+  <ul class="collection with-header feed-collection">
+    <li class="collection-header"><h4>First Names</h4></li>
+    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+  </ul>
 </section>

@@ -1,16 +1,23 @@
 <section class="post-show-container">
+
+
   <article class="post-show-card">
-    <% if @post.image.attached? %>
-      <%= image_tag(@post.image, class: 'post-image') %>
-    <% end %>
 
-    <p>
-      <%= @post.description %>
-    </p>
-
-    <p>
-      <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Sure?"} %>
-    </p>
+      <div class="card">
+        <div class="card-image">
+       
+          <% if @post.image.attached? %>
+            <%= image_tag(@post.image, class: 'post-image') %>
+          <% end %>
+          
+        </div>
+        <div class="card-content">
+          <p><%= @post.description %></p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Sure?"} %>
+        </div>
+      </div>
 
   </article>
 

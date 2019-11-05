@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :post do
     active { false }
     description { "MyText" }
-    account { nil }
+    account
+    image {Faker::Placeholdit.image}
   end
 end

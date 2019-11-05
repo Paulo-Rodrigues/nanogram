@@ -14,8 +14,23 @@
     width: 100%;
 }
 
+// .feed-collection{}
+
 @media(min-width: 600px) {
     .feed{
-        grid-template-columns: 1fr 2fr 1fr;
+        margin-left: 5%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .feed-card{
+        grid-column: 1 / 2;
+    }
+
+    .feed-collection{
+        grid-column: 2 / 3;
+        grid-row: 1;
+        margin: 10%;
+        margin-top: 2%;
+        height: 50%;
     }
 }
