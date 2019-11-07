@@ -1,4 +1,4 @@
-class Followable
+module Followable
   extend ActiveSupport::Concern
   
   included do
