@@ -1,11 +1,10 @@
 class Account < ApplicationRecord
+  include Followable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :follows, as: :follower, dependent: :destroy
-  has_many :followings, as: :followable, dependent: :destroy, class_name: 'Follow'
   has_many :posts, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_one_attached :avatar
