@@ -18,14 +18,13 @@
   <% end %>
 
   <ul class="collection with-header feed-collection">
-    <li class="collection-header"><h4>First Names</h4></li>
-    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-    <li class="collection-item"><div>Alvin<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+    <li class="collection-header"><h4>Suggestions</h4></li>
+    <% @follow_suggestions.each do |user| %>
+      <li class="collection-item">
+        <div><%= user.username %>
+          <%= link_to "Follow", follow_account_path(user) ,method: :post, class: 'secondary-content' %>
+        </div>
+      </li>
+    <% end %>
   </ul>
 </section>

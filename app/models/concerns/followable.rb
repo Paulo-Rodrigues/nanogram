@@ -4,6 +4,7 @@ module Followable
   included do
     has_many :follows, as: :follower, dependent: :destroy
     has_many :followings, as: :followable, dependent: :destroy, class_name: 'Follow'
+
   end
 
   def follow(followable)
@@ -21,7 +22,14 @@ module Followable
     follows.delete(Follow.where(followable_id: followable.id, follower_id: self.id))
   end
 
+  def followed_ids
+    following_ids = Follow.where(follower_id: self.id).map(&:followable_id)
+    following_ids << self.id
+    following_ids
+  end
+
   private
+
 
   def mapped_follower_ids
       follows.map {|f| f.followable.id}

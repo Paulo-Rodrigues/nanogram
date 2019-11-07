@@ -4,6 +4,12 @@ Rails.application.routes.draw do
     root to: 'accounts#index', as: :dashboard
   end
 
+  resources :accounts do
+    member do
+      post "follow", to: "follow#create", as: :follow
+    end
+  end
+
   get '/dashboard', to: 'accounts#index'
   get '/profile/:username', to: 'accounts#show', as: :profile
 
