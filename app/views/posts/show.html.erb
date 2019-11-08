@@ -4,6 +4,12 @@
   <article class="post-show-card">
 
       <div class="card">
+        <span class="card-title">
+          <% if @post.account.avatar.present? %>
+            <%= image_tag(@post.account.avatar, class: 'card-avatar') %>
+          <% end %>
+            <%= @post.account.username %>
+        </span>
         <div class="card-image">
        
           <% if @post.image.attached? %>
