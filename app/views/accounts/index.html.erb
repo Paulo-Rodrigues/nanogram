@@ -4,6 +4,12 @@
   <% @posts.each do |post| %>
     <section class='feed-card'>
       <div class="card">
+        <span class="card-title">
+          <% if post.account.avatar.present? %>
+            <%= image_tag(post.account.avatar, class: 'card-avatar') %>
+          <% end %>
+            <%= post.account.username %>
+        </span>
         <div class="card-image">
 
           <%= link_to post_path(post) do %>
@@ -21,7 +27,7 @@
     <li class="collection-header"><h4>Suggestions</h4></li>
     <% @follow_suggestions.each do |user| %>
       <li class="collection-item">
-        <div><%= user.username %>
+        <div><%= link_to user.username, profile_path(user.username) %>
           <%= link_to "Follow", follow_account_path(user) ,method: :post, class: 'secondary-content' %>
         </div>
       </li>

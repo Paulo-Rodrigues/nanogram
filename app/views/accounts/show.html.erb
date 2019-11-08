@@ -7,9 +7,16 @@
 
     <section class="profile-user-info">
       <p><%= link_to "Edit Profile", edit_account_registration_path %></p>
+      <% if current_account.following?(@account) %>
+        following
+      <% else %>
+        <%= link_to "Follow", follow_account_path(@account), method: :post unless current_account == @account%>
+      <% end %>
       <p><%= @account.username %></p>
       <p><%= @account.first_name %></p>
       <p><%= @account.last_name %></p>
+      <p>Followings: <%= @account.followings.count %></p>
+      <p>Follows: <%= @account.follows.count %></p>
       <p><%= @account.bio %></p>
     </section>
   </section>
