@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_140755) do
+ActiveRecord::Schema.define(version: 2019_11_12_132736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,7 +84,17 @@ ActiveRecord::Schema.define(version: 2019_11_07_140755) do
     t.index ["account_id"], name: "index_posts_on_account_id"
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer "votable_id"
+    t.string "votable_type"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_votes_on_account_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "accounts"
   add_foreign_key "posts", "accounts"
+  add_foreign_key "votes", "accounts"
 end
