@@ -7,12 +7,12 @@ RSpec.feature "Follow  feature" do
     login_as(@user1)
   end
 
-  # scenario 'user follow other user' do
-  #   visit root_path
+  scenario 'user follow other user' do
+    visit root_path
 
-  #   click_link @user2.username
+    click_link @user2.username
 
 
-  #   expect(@user1.followings.count).to eq(1)
-  # end
+    expect(page).not_to have_link(@user2.username)
+  end
 end
