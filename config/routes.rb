@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/profile/:username', to: 'accounts#show', as: :profile
 
   resources :posts, only: [:new, :create, :show, :destroy] do
+    resources :likes, only: [:create, :destroy], module: :posts
     resources :comments, module: :posts
   end
 

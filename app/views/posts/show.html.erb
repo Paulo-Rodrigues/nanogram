@@ -21,6 +21,11 @@
           <p><%= @post.description %></p>
         </div>
         <div class="card-action">
+          <% if current_account.liked?(@post) %>
+            <%= link_to "Unlike", post_like_path(@post), method: :delete %>
+          <% else %>
+            <%= link_to "Like", post_likes_path(@post), method: :post  %>
+          <% end %>
           <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Sure?"} %>
         </div>
       </div>
