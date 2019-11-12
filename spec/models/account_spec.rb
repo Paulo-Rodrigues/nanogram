@@ -22,5 +22,6 @@ RSpec.describe Account, type: :model do
     it {is_expected.to have_many(:comments).dependent(:destroy)}
     it {is_expected.to have_many(:follows).dependent(:destroy)}
     it {is_expected.to have_many(:followings).dependent(:destroy)}
+    it {is_expected.to have_many(:votes).dependent(:destroy)}
   end
 end

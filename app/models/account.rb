@@ -7,6 +7,7 @@ class Account < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :votes, dependent: :destroy
   has_one_attached :avatar
 
   validates :username, presence: true, uniqueness: true,  length: {maximum: 140}
