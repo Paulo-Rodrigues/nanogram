@@ -14,7 +14,8 @@ module Followable
   end
 
   def following?(followable)
-    mapped_ids = mapped_follower_ids
+    # mapped_ids = mapped_follower_ids
+    mapped_ids = followed_ids
     mapped_ids.include?(followable.id)
   end
 

@@ -9,9 +9,6 @@ class Account < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
   has_one_attached :avatar
 
-  # validates :username, presence: true, uniqueness: true,  length: {maximum: 140}
-  #
-  def username
-    email.split('@')[0]
-  end
+  validates :username, presence: true, uniqueness: true,  length: {maximum: 140}
+  
 end
