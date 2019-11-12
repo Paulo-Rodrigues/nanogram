@@ -8,6 +8,10 @@ require 'rspec/rails'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
+FactoryBot::SyntaxRunner.class_eval do
+  include ActionDispatch::TestProcess
+end
+
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
