@@ -14,6 +14,6 @@ class Account < ApplicationRecord
   validates :username, presence: true, uniqueness: true,  length: {maximum: 140}
   
   def feed
-    Post.where(account_id: self.followed_ids).order(created_at: :desc)
+    Post.where(account_id: self.followed_ids).with_eager_loaded_image.order(created_at: :desc)
   end
 end
