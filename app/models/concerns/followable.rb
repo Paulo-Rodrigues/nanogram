@@ -14,7 +14,6 @@ module Followable
   end
 
   def following?(followable)
-    # mapped_ids = mapped_follower_ids
     mapped_ids = followed_ids
     mapped_ids.include?(followable.id)
   end
@@ -27,13 +26,6 @@ module Followable
     following_ids = Follow.where(follower_id: self.id).map(&:followable_id)
     following_ids << self.id
     following_ids
-  end
-
-  private
-
-
-  def mapped_follower_ids
-      follows.map {|f| f.followable.id}
   end
 
 end
