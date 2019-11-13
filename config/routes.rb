@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :follow, only: [:index]
+
   get '/dashboard', to: 'accounts#index'
   get '/profile/:username', to: 'accounts#show', as: :profile
 

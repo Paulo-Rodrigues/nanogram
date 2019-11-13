@@ -22,6 +22,13 @@
 
   <ul class="collection with-header feed-collection">
     <li class="collection-header"><h4>Suggestions</h4></li>
+    <li class="collection-item">
+
+  <%= form_tag follow_index_path, method: :get do %>
+   <%= text_field_tag :query, params[:query], placeholder: 'Search Users'  %>
+   <%= submit_tag "Search", name: nil, class: 'btn' %>
+  <% end %>
+    </li>
     <% @follow_suggestions.each do |user| %>
       <li class="collection-item">
         <div><%= link_to user.username, profile_path(user.username) %>
