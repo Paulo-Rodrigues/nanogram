@@ -1,7 +1,7 @@
 class FollowController < ApplicationController
 
   def index
-    @accounts = Account.search(params[:query])
+    @accounts = SearchService.new(params[:query]).call
   end
 
   def create
