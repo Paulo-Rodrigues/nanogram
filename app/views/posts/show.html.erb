@@ -1,43 +1,30 @@
+<% present @post do |post_presenter| %>
 <section class="post-show-container">
-
-
   <article class="post-show-card">
-
-      <div class="card">
-        <span class="card-title">
-          <% if @post.account.avatar.present? %>
-            <%= image_tag(@post.account.avatar, class: 'card-avatar') %>
-          <% end %>
-            <%= @post.account.username %>
-        </span>
-        <div class="card-image">
-       
-          <% if @post.image.attached? %>
-            <%= image_tag(@post.image, class: 'post-image') %>
-          <% end %>
-          
-        </div>
-        <div class="card-content">
-          <p><%= @post.description %></p>
-        </div>
-        <div class="card-action">
-          <% if current_account.liked?(@post) %>
-            <%= link_to "Unlike", post_like_path(@post), method: :delete %>
-          <% else %>
-            <%= link_to "Like", post_likes_path(@post), method: :post  %>
-          <% end %>
-          <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Sure?"} %>
-        </div>
-      </div>
-
+   <div class="card">
+     <span class="card-title">
+      <%= post_presenter.post_avatar %>
+     </span>
+     <div class="card-image">
+      <%= post_presenter.post_image %>
+     </div>
+     <div class="card-content">
+      <p><%= post_presenter.post_description %></p>
+     </div>
+     <div class="card-action">
+      <%= post_presenter.liked_posts %>
+      <%= post_presenter.delete_post %>
+     </div>
+   </div>
   </article>
 
   <article class="post-comments-form">
-    <%= render partial: 'comments/form', locals: {commentable: @post} %>
+    <%= post_presenter.comments_form %>
   </article>
 
   <article class="post-comments">
-    <%= render partial: 'comments/comments', locals: {commentable: @post} %>
+    <%= post_presenter.render_comments %>
   </article>
 </section>
 
+<% end %>

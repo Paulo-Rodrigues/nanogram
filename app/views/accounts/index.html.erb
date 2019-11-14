@@ -1,23 +1,19 @@
 
 <section class='feed'>
-  
   <% @posts.each do |post| %>
+    <% present post do |post_presenter| %>
     <section class='feed-card'>
       <div class="card">
         <span class="card-title">
-          <% if post.account.avatar.present? %>
-            <%= image_tag(post.account.avatar, class: 'card-avatar') %>
-          <% end %>
-            <%= post.account.username %>
+          <%= post_presenter.post_avatar %>
+          <%= post_presenter.post_username %>
         </span>
         <div class="card-image">
-
-          <%= link_to post_path(post) do %>
-            <%= image_tag(post.image, class: 'feed-image') %>
-          <% end %>
+          <%= post_presenter.link_to_post_image %>
         </div>
       </div>
     </section>
+    <% end %>
   <% end %>
 
   <ul class="collection with-header feed-collection">
@@ -28,6 +24,7 @@
    <%= text_field_tag :query, params[:query], placeholder: 'Search Users'  %>
    <%= submit_tag "Search", name: nil, class: 'btn' %>
   <% end %>
+
     </li>
     <% @follow_suggestions.each do |user| %>
       <li class="collection-item">

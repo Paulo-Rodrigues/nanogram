@@ -6,6 +6,14 @@ class BasePresenter
 
   private
 
+  def handle_none(value)
+    if value.present?
+      yield
+    else
+      h.content_tag :span, ""
+    end
+  end
+
   def h
     @template
   end

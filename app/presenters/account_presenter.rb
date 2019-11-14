@@ -3,7 +3,7 @@ class AccountPresenter < BasePresenter
   delegate :username, to: :account
 
   def avatar
-    handle_none_given account.avatar do
+    handle_none account.avatar do
       h.image_tag(account.avatar, class: 'avatar') 
     end
   end
@@ -21,13 +21,13 @@ class AccountPresenter < BasePresenter
   end
 
   def first_name
-    handle_none_given account.username do
+    handle_none account.username do
       account.first_name
     end
   end
 
   def last_name
-    handle_none_given account.last_name do
+    handle_none account.last_name do
       account.last_name 
     end
   end
@@ -54,13 +54,6 @@ class AccountPresenter < BasePresenter
     h.current_account == account
   end
 
-  def handle_none_given(value)
-    if value.present?
-      yield
-    else
-      h.content_tag :span, ""
-    end
-  end
 end
 
 
