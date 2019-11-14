@@ -4,7 +4,7 @@ class FollowController < ApplicationController
     if params[:query].present?
       @accounts = SearchService.new(params[:query]).call
     else
-      @accounts = current_account.followings
+      @accounts = current_account.follows
     end
   end
 
