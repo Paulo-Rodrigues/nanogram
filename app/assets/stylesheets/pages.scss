@@ -1,5 +1,8 @@
 .homepage-banner {
-  background-image: radial-gradient(circle, white, purple);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.205), rgba(128, 0, 128, 0.281)), url(landing.jpg);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
   height: 100%;
   display: flex;
   flex-direction: column;
