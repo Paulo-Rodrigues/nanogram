@@ -1,0 +1,15 @@
+.followings-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+}
+
+.followings-card-container {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+// .following-card {
+    
+// }

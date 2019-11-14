@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :accounts do
     member do
       post "follow", to: "follow#create", as: :follow
+      delete "unfollow", to: "follow#destroy", as: :unfollow
     end
   end
 

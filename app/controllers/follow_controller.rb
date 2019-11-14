@@ -1,13 +1,23 @@
 class FollowController < ApplicationController
 
   def index
-    @accounts = SearchService.new(params[:query]).call
+    if params[:query].present?
+      @accounts = SearchService.new(params[:query]).call
+    else
+      @accounts = current_account.followings
+    end
   end
 
   def create
     current_account.follow(followable)
 
-    redirect_to dashboard_path
+    redirect_back(fallback_location: dashboard_path)
+  end
+
+  def destroy
+    current_account.unfollow(followable)
+
+    redirect_back(fallback_location: dashboard_path)
   end
 
   private
