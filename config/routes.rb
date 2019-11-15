@@ -21,5 +21,9 @@ Rails.application.routes.draw do
     resources :comments, module: :posts
   end
 
+  resources :comments do
+    resources :likes, only: [:create, :destroy], module: :comments
+  end
+
   root 'pages#homepage'
 end

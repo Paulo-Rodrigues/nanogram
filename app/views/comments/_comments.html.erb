@@ -7,6 +7,11 @@
      <p><%= comment.body %></p>
    </div>
    <div class="card-action">
+     <% if current_account.liked?(comment) %>
+       <%= link_to "Unlike", comment_like_path(comment), method: :delete %>
+     <% else %>
+       <%= link_to "Like", comment_likes_path(comment), method: :post %>
+     <% end %>
    </div>
   </div>
 

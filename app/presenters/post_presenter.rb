@@ -40,7 +40,7 @@ class PostPresenter < BasePresenter
   end
 
   def delete_post
-    h.link_to "Delete", h.post_path(post), method: :delete, data: {confirm: "Sure?"} 
+    h.link_to "Delete", h.post_path(post), method: :delete, data: {confirm: "Sure?"} if is_owner?
   end
 
   def comments_form
@@ -49,6 +49,12 @@ class PostPresenter < BasePresenter
 
   def render_comments
     h.render partial: 'comments/comments', locals: {commentable: post} 
+  end
+
+  private
+
+  def is_owner?
+    h.current_account.id == post.account.id
   end
 
 end
