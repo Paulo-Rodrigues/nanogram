@@ -8,5 +8,6 @@ RSpec.describe Comment, type: :model do
   context 'associations' do
     it {is_expected.to belong_to(:account)}
     it {is_expected.to belong_to(:commentable)}
+    it {is_expected.to have_many(:votes).dependent(:destroy)}
   end
 end

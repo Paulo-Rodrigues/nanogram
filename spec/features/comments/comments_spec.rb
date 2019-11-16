@@ -15,4 +15,5 @@ RSpec.feature 'Comments', type: :feature do
 
     expect(page).to have_content('Commented')
   end
+
 end

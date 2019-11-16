@@ -7,6 +7,12 @@ RSpec.describe Follow, type: :model do
   end
 
   context 'validations' do
-    xit {is_expected.to validate_presence_of(:followable)}
+    it {is_expected.to validate_presence_of(:followable)}
+    it {is_expected.to validate_presence_of(:follower)}
+    it "not follow himself" do
+      user = create(:account)
+      user.follow(user)
+      expect(user.follows.count).to be_equal(0)
+    end
   end
 end

@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :comment do
-    commentable_type { "MyString" }
+    commentable_type {"Post"}
     commentable_id { 1 }
     body { "MyText" }
-    account { nil }
+    account 
   end
 end
