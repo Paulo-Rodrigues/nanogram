@@ -1,24 +1,10 @@
-# README
+# Nanogram
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Nanogram is a tiny app inspired by instagram.
 
-Things you may want to cover:
+Used ActiveStorage for this project
 
-* Ruby version
+* Ruby version : 2.5.1
 
-* System dependencies
+* Rails version: 6.0.0
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
